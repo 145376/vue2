@@ -55,12 +55,13 @@ export default {
       ],
     };
   },
-  mounted() {
-    console.log('挂载了');
-    this.drawChart();
+  created(){
+    this.$http.get('/home').then((res) => {
+      console.log(res);
+    })
   },
-  destroyed(){
-    console.log('销毁了');
+  mounted(){
+    this.drawChart()
   },
   methods: {
     prefix(item) {

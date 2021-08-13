@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router/index";
 import store from "./store/index";
+import http from './utils/http'
 // 按需引入echarts
 import * as echarts from "echarts";
 import { BarChart } from "echarts/charts";
@@ -45,7 +46,10 @@ echarts.use([
   CanvasRenderer,
 ]);
 
+require('./mock')
+
 Vue.prototype.$chart = echarts;
+Vue.prototype.$http = http;
 
 Vue.config.productionTip = false;
 
